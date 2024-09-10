@@ -51,6 +51,8 @@ directus/ — конфигурация и данные Directus.
 docker-compose.yml — описание сервисов Docker.
 
 
+Скрины:
+https://github.com/robot122-dev/photoAlbum/blob/master/etc/gitImages/2024-09-10_14-59-01.png
 
 
 
