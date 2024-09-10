@@ -1,0 +1,5 @@
+2024/09/09 17:54:38 [error] 30#30: *2 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 172.18.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2024/09/09 17:54:51 [error] 29#29: *1 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 172.18.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2024/09/09 17:58:11 [error] 27#27: *4 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 172.18.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2024/09/09 18:00:50 [error] 27#27: *1 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 172.18.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8080"
+2024/09/09 19:05:40 [error] 31#31: *56 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.18.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/album/6/0"

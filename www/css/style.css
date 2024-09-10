@@ -1,0 +1,291 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 960px;
+  background: #ffeed7;
+  padding: 20px; /* Отступы по краям экрана */
+  margin-top: 80px; /* Отступ сверху для шапки */
+}
+
+/* Ссылки */
+a {
+  text-decoration: none; /* Убираем подчеркивание */
+  color: inherit; /* Цвет ссылки наследуется от родителя */
+  display: block;
+}
+
+/* Стили для шапки */
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center; /* Центрируем заголовок */
+  align-items: center;
+  padding: 20px;
+  background-color: #282c34; /* Фоновый цвет шапки */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Тень под шапкой */
+  z-index: 1000; /* Устанавливаем выше остальных элементов */
+}
+
+/* Стили для названия сайта */
+.site-title {
+  font-family: "Jost", sans-serif;
+  font-size: 36px;
+  font-weight: bold;
+  background: linear-gradient(45deg, #ff6f61, #ffcc00); /* Градиентный фон */
+  -webkit-background-clip: text; /* Обрезка фона по тексту */
+  background-clip: text;
+  -webkit-text-fill-color: transparent; /* Прозрачный цвет текста для эффекта градиента */
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3); /* Эффект тени */
+  letter-spacing: 1px; /* Расстояние между буквами */
+}
+
+/* Стили для кнопки администратора */
+#admin-button {
+  position: fixed;
+  left: 20px; /* Расстояние от левого края */
+  top: 20px; /* Расстояние от верхнего края */
+  width: 120px; /* Ширина кнопки */
+  height: 50px; /* Высота кнопки */
+  background-color: #333; /* Фоновый цвет кнопки */
+  color: #fff; /* Цвет текста */
+  border-radius: 10px; /* Скругленные углы */
+  display: flex; /* Используем flexbox для центрирования содержимого */
+  align-items: center; /* Вертикальное выравнивание содержимого */
+  justify-content: center; /* Горизонтальное выравнивание содержимого */
+  text-decoration: none; /* Убираем подчеркивание у ссылки */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Тень */
+  transition: transform 0.3s ease, opacity 0.3s ease; /* Плавные переходы */
+  opacity: 0.5; /* Частично скрываем кнопку по умолчанию */
+  transform: translateX(-100%); /* Скрываем кнопку слева */
+  z-index: 1001; /* Устанавливаем выше остальных элементов */
+}
+
+/* Эффект появления кнопки при наведении */
+#admin-button:hover {
+  opacity: 1; /* Делает кнопку полностью видимой */
+  transform: translateX(0); /* Выдвигает кнопку на экран */
+}
+
+/* Стили для иконки и текста внутри кнопки */
+#admin-button .icon {
+  font-size: 24px; /* Размер иконки */
+  margin-right: 10px; /* Отступ между иконкой и текстом */
+}
+
+#admin-button .text {
+  font-size: 16px; /* Размер текста */
+}
+
+/* Анимация для кнопки при наведении */
+@keyframes shine {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+#admin-button {
+  background: linear-gradient(45deg, #ff6f61, #ffcc00);
+  background-size: 200% 100%;
+  animation: shine 1.5s infinite;
+}
+
+/* Общий flex-контейнер для галерей и фото */
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Центрируем содержимое */
+  gap: 40px; /* Расстояние между элементами */
+  padding: 0 40px; /* Внутренние отступы по краям */
+}
+
+/* Галерея альбомов и фотоальбом */
+#gallery, #photos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px; /* Увеличенные отступы между элементами */
+  width: calc(100% - 40px); /* Ширина на весь экран минус отступы по краям */
+  margin: 20px 0; /* Отступы сверху и снизу */
+}
+
+/* Элементы галереи альбомов и фото */
+#gallery a, #photos a {
+  width: calc(33.333% - 60px); /* Три элемента в строке */
+  margin: 0;
+  border: 10px solid #f1f1f1;
+  border-radius: 15px;
+  overflow: hidden;
+  box-sizing: border-box;
+  position: relative;
+  cursor: pointer;
+  aspect-ratio: 4/3; /* Пропорции контейнера 4:3 */
+}
+
+/* Изображения внутри галереи */
+#gallery img, #photos img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+/* Анимация при наведении */
+#gallery a:hover, #photos a:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+#gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  width: calc(100% - 40px);
+  margin: 20px 0;
+}
+
+.gallery__item-title {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: #fff;
+  font-family: "Jost", sans-serif;
+  font-size: 20px;
+  padding: 5px 10px; /* Немного отступов для фона */
+  background-color: rgba(0, 0, 0, 0.6); /* Полупрозрачный черный фон для читаемости текста */
+  border-radius: 5px; /* Скругленные углы */
+  text-shadow: 1px 1px 2px rgb(0, 0, 0), 0 0 1em rgba(0, 0, 0, 0.459), 0 0 0.2em rgba(87, 87, 87, 0.425);
+}
+
+/* Стили модального окна */
+.modal {
+  display: flex; /* Для центрирования содержимого */
+  position: fixed;
+  z-index: 9999; /* Убедитесь, что модальное окно поверх всех элементов */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Полупрозрачный черный фон */
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.5s ease; /* Плавный переход видимости */
+}
+
+.modal-content {
+  max-width: 70%;
+  max-height: 70%;
+  width: auto;
+  height: auto;
+  display: block;
+  margin: auto;
+}
+
+.close {
+  position: absolute;
+  top: 10px; /* Отступ от верхнего края */
+  right: 10px; /* Отступ от правого края */
+  font-size: 35px; /* Размер шрифта */
+  color: #fff; /* Цвет текста */
+  cursor: pointer;
+  transition: color 0.3s ease;
+  z-index: 10000; /* Убедитесь, что кнопка поверх всех элементов */
+}
+
+/* Эффект при наведении на кнопку закрытия */
+.close:hover {
+  color: #ff6f61; /* Изменение цвета при наведении */
+}
+
+/* Текст подписи под изображением */
+#caption {
+  position: absolute;
+  bottom: 10px;
+  color: white;
+  text-align: center;
+  margin: 10px 0;
+}
+
+/* Кнопки навигации в модальном окне */
+.nav-btn {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: background-color 0.3s ease;
+}
+
+#back-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 50px;
+  background-color: #e2ac4e; /* Синий фон */
+  color: #fff; /* Белый текст */
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px; /* Скругленные углы */
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тень */
+}
+
+#back-button:hover {
+  background-color: #c78b24; /* Более темный синий при наведении */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Более яркая тень */
+}
+
+#back-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); /* Обводка при фокусе */
+}
+
+#back-button i {
+  margin-right: 8px;
+  font-size: 20px; /* Размер иконки */
+}
+
+#prevBtn {
+  left: 10px;
+}
+
+#nextBtn {
+  right: 10px;
+}
+
+.nav-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Адаптивные стили для экранов шириной менее 1200px */
+@media (max-width: 1200px) {
+  #gallery a, #photos a {
+    width: calc(50% - 60px); /* Два элемента в строке */
+  }
+}
+@media (max-width: 768px) {
+  #gallery a, #photos a {
+    width: calc(100% - 40px); /* Один элемент в строке */
+  }
+}/*# sourceMappingURL=style.css.map */

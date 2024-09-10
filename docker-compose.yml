@@ -1,0 +1,46 @@
+services:
+  directus:
+    image: directus/directus:11.1.0
+    environment:
+      SECRET: "automaton-dist-photo"
+      ADMIN_EMAIL: "admin@example.com"
+      ADMIN_PASSWORD: "d1r3ctu5"
+      DB_CLIENT: "sqlite3"
+      DB_FILENAME: "/directus/database/data.db"
+      WEBSOCKETS_ENABLED: "true"
+      
+      CORS_ENABLED: 'true'
+      Access-Control-Allow-Origin: '*'
+      CORS_ORIGIN: '*'
+      CORS_METHODS: 'GET,POST,PATCH,DELETE'
+      CORS_ALLOWED_HEADERS: 'Content-Type,Authorization'
+      CORS_EXPOSED_HEADERS: 'Content-Range'
+    env_file:
+      - .env
+    volumes:
+      - ./database:/directus/database
+      - ./uploads:/directus/uploads
+      - ./extensions:/directus/extensions
+      - ./etc/directus/logs:/app/logs
+    ports:
+      - "8055:8055"
+  
+  my-website:
+    build:
+      context: ./www
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "8080:80"  # Внешний порт 8080 проксирует на внутренний порт 80
+    volumes:
+      - ./etc/nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./etc/nginx/logs/error.log:/etc/nginx/logs/error.log
+      - ./etc/nginx/logs/access.log:/etc/nginx/logs/access.log
+      - ./www:/usr/share/nginx/html
+    depends_on:
+      - directus
+      - my-website
