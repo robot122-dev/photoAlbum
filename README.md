@@ -15,13 +15,16 @@
 1. **Клонирование репозитория**
    
    Склонируйте репозиторий на локальный компьютер:
-   -- git clone https://github.com/robot122-dev/photoAlbum.git
+   
+-- git clone https://github.com/robot122-dev/photoAlbum.git
    
 Запуск Docker контейнеров
 Приложение использует Docker и Docker Compose для управления зависимостями. Убедитесь, что Docker установлен на вашем компьютере.
 
 Для запуска контейнеров выполните:
+
 -- cd photoAlbum
+
 -- docker-compose up -d
 Доступ к приложению
 
@@ -46,11 +49,6 @@ frontend/ — исходный код сайта.
 nginx/ — конфигурация Nginx.
 directus/ — конфигурация и данные Directus.
 docker-compose.yml — описание сервисов Docker.
-
-Скрины работы приложения
-![Uploading image.png…]()
-![Uploading image.png…]()
-![Uploading image.png…]()
 
 
 
