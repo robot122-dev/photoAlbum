@@ -47,5 +47,14 @@ nginx/ — конфигурация Nginx.
 directus/ — конфигурация и данные Directus.
 docker-compose.yml — описание сервисов Docker.
 
+Скрины работы приложения
+![Uploading image.png…]()
+![Uploading image.png…]()
+![Uploading image.png…]()
+
+
+
+
+
 
 
