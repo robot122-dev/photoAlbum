@@ -52,10 +52,8 @@ docker-compose.yml — описание сервисов Docker.
 
 
 Скрины:
-![Alt text](https://github.com/robot122-dev/photoAlbum/blob/master/etc/gitImages/2024-09-10_14-59-01.png)
-
-
-
-
-
-
+![Главный экран](https://github.com/robot122-dev/photoAlbum/blob/master/etc/gitImages/2024-09-10_14-59-01.png)
+![Страница альбома](https://github.com/robot122-dev/photoAlbum/blob/master/etc/gitImages/2024-09-10_15-00-19.png)
+![Модальное окно](https://github.com/robot122-dev/photoAlbum/blob/master/etc/gitImages/2024-09-10_15-00-54.png)
+![Админ меню](https://github.com/robot122-dev/photoAlbum/blob/master/etc/gitImages/2024-09-10_15-01-17.png)
+![Работа админ меню](https://github.com/robot122-dev/photoAlbum/blob/master/etc/gitImages/2024-09-10_15-02-03.png)
